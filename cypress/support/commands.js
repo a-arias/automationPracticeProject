@@ -22,4 +22,30 @@
 //
 //
 // -- This will overwrite an existing command --
+
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('navigateToDashboard', () => {
+  // # Get all parameters from auth0
+  cy.visit('http://automationpractice.com/');
+  // # Wait to page to load
+  cy.get(".login").should('exist').click();
+});
+
+Cypress.Commands.add('loginAsNormalUser', () => {
+  // # Get all parameters from auth0
+  cy.visit('http://automationpractice.com/');
+  // # Wait to page to load
+  cy.get(".login").should('exist').click();
+
+  // # Fills Email information
+  cy.get("#email").type("abram@example.com");
+
+  // # Fills Password information
+  cy.get("#passwd").type("password");
+  
+  // # Clicks login button
+  cy.get("#SubmitLogin").click();
+
+  // # Asserts dashboard is loading correctly
+  cy.get("H1.page-heading").contains('My account');
+});
