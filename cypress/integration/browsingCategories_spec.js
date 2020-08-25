@@ -3,7 +3,7 @@ context('Browsing Categories Functionality', () => {
     cy.loginAsNormalUser();
   });
 
-  it.skip('should be able browse to women dresses category and display given dress information', () => {
+  it('should be able browse to women dresses category and display given dress information', () => {
     let dress = 'Printed Dress';
 
     // # Clicks womens link
