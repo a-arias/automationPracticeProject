@@ -25,6 +25,6 @@ context('Checkout Functionality', () => {
     cy.get("button[type='submit']").contains('I confirm my order').click();
 
     //# Assert the order was successfully made
-    cy.get("p.alert-success").contains('Your order on My Store is complete.').should('be.visible') 
+    cy.get("p.alert-success").contains('Your order on My Store is complete.').should('be.visible');
   });
 });

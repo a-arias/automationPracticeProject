@@ -4,7 +4,7 @@ context('Account Creation Functionality', () => {
     cy.navigateToDashboard();
   });
 
-  it('should be able to create a new user', () => {
+  it.skip('should be able to create a new user', () => {
     let randomNum = Math.floor(Math.random() * 999999) + 1;
     let email = `abram+${randomNum}@targetable.com`
 

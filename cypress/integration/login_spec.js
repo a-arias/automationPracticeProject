@@ -15,7 +15,7 @@ context('login functionality', () => {
     cy.get("#SubmitLogin").click();
 
     // # Asserts dashboard is loading correctly
-    cy.get("H1.page-heading").contains('My account');
+    cy.get("H1.page-heading").contains('My account').should('be.visible');
 
   });
 
@@ -30,7 +30,7 @@ context('login functionality', () => {
     cy.get("#SubmitLogin").click();
 
     // # Asserts dashboard is loading correctly
-    cy.get("div.alert-danger").contains('There is 1 error');
+    cy.get("div.alert-danger").contains('There is 1 error').should('be.visible');
 
   });
 });
