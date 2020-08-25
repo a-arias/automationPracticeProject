@@ -6,7 +6,7 @@ context('Account Creation Functionality', () => {
 
   it.skip('should be able to create a new user', () => {
     let randomNum = Math.floor(Math.random() * 999999) + 1;
-    let email = `abram+${randomNum}@targetable.com`
+    let email = `abram+${randomNum}@example.com`
 
     // # Fills Email information
     cy.get("#email_create").type(email);
