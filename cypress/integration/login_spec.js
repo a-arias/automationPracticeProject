@@ -6,10 +6,10 @@ context('login functionality', () => {
 
   it('should be able to login using normal user', () => {
     // # Fills Email information
-    cy.get("#email").type("abram@targetable.com");
+    cy.get("#email").type(Cypress.env('email'));
 
     // # Fills Password information
-    cy.get("#passwd").type("nasadina2");
+    cy.get("#passwd").type(Cypress.env('pass'));
     
     // # Clicks login button
     cy.get("#SubmitLogin").click();
@@ -21,7 +21,7 @@ context('login functionality', () => {
 
   it('should Not be able to login using wrong credentials', () => {
     // # Fills Email information
-    cy.get("#email").type("abram@targetable.com");
+    cy.get("#email").type(Cypress.env('email'));
 
     // # Fills Password information
     cy.get("#passwd").type("incorrect password");
