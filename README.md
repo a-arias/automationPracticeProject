@@ -9,9 +9,9 @@ cd automationPracticeProject
 npm install
 
 ### Setting up cypress environment variables
-export CYPRESS_email='arias.abram@gmail.com'
+export CYPRESS_email='abram@example.com'
 
-export CYPRESS_pass='nasadina22'
+export CYPRESS_pass='123456'
 
 ### Run tests headless
 npx cypress run
