@@ -1,21 +1,47 @@
 
 context('Account Creation Functionality', () => {
   beforeEach(() => {
-    cy.loginAsNormalUser();
+    cy.navigateToDashboard();
   });
 
   it('should be able to create a new user', () => {
+    let randomNum = Math.floor(Math.random() * 999999) + 1;
+    let email = `abram+${randomNum}@targetable.com`
+
     // # Fills Email information
-    cy.get("#email").type("abram@targetable.com");
+    cy.get("#email_create").type(email);
 
-    // # Fills Password information
-    cy.get("#passwd").type("nasadina2");
-    
     // # Clicks login button
-    cy.get("#SubmitLogin").click();
+    cy.get("#SubmitCreate").click();
 
-    // # Asserts dashboard is loading correctly
-    cy.get("H1.page-heading").contains('My account');
+    // # Filling required Personal information
+    cy.get("#customer_firstname").type('Abrahammmm');
+
+    cy.get("#customer_lastname").type('Ariassssss');
+
+    // cy.get("#email").click().type(email);
+
+    cy.get("#passwd").should('exist').type("myPassword123");
+
+    //# Filling required Address information
+    cy.get("#address1").type("1 main st");
+
+    cy.get("#city").type("Redwood");
+
+    cy.get('#uniform-id_state').select('California').should('have.value', '5')
+
+    cy.get("#postcode").type("90001");
+
+    cy.get('#id_country').select('United States').should('have.value', '21')
+
+    cy.get("#phone_mobile").type("+526621496281");
+    
+    cy.get("#alias").clear().type("My Alias address");
+
+    // # Filling required Address information
+    cy.get("#submitAccount").click();
+
+    cy.get("a.account").contains('Abraham Arias');
 
   });
 });
