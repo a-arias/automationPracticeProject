@@ -26,26 +26,46 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('navigateToDashboard', () => {
   // # Get all parameters from auth0
-  cy.visit('http://automationpractice.com/');
+  cy.visit('/');
   // # Wait to page to load
   cy.get(".login").should('exist').click();
 });
 
 Cypress.Commands.add('loginAsNormalUser', () => {
   // # Get all parameters from auth0
-  cy.visit('http://automationpractice.com/');
+  cy.visit('/');
   // # Wait to page to load
   cy.get(".login").should('exist').click();
 
   // # Fills Email information
-  cy.get("#email").type("abram@example.com");
+  cy.get("#email").type("abram@targetable.com");
 
   // # Fills Password information
-  cy.get("#passwd").type("password");
+  cy.get("#passwd").type("nasadina2");
   
   // # Clicks login button
   cy.get("#SubmitLogin").click();
 
   // # Asserts dashboard is loading correctly
   cy.get("H1.page-heading").contains('My account');
+});
+
+// #This command is going to perform all clicks to checkout a product following the happy path
+Cypress.Commands.add('clickCheckoutAllsectionsButtons', () => {
+    //# confirm and continue to first checkout section
+    cy.get("a").contains("Proceed to checkout").click();
+
+    //# click checkout summary button
+    cy.get('p.cart_navigation').within(() => {
+      cy.get("a[title='Proceed to checkout']").click();
+    });
+      
+    //# click proceed to checkout address button
+    cy.get("button[name='processAddress']").click();
+
+    //# Accepting terms and conditions
+    cy.get("#uniform-cgv").click();
+      
+    //# click proceed to checkout shipping button 
+    cy.get("button[name='processCarrier']").click();
 });
