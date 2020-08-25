@@ -1,7 +1,9 @@
 ## This is the automated testing framework for ​http://automationpractice.com/
 
-### Environment set up
+### Downloading and open the project folder
 git clone git@github.com:a-arias/automationPracticeProject.git
+
+cd automationPracticeProject
 
 ### Install libraries
 npm install
@@ -15,4 +17,4 @@ export CYPRESS_pass='nasadina22'
 npx cypress run
 
 ### Open Cypress Gui to select test to run
-cypress open
+ ./node_modules/.bin/cypress open   
